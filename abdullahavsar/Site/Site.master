@@ -1,0 +1,164 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site_Site" %>
+
+<%@ Register Src="~/Site/Anket.ascx" TagPrefix="uc1" TagName="WebUserControl" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
+   
+   
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+       
+    <table align="center" cellspacing="1" width="1000px" border="1px">
+        <tr>
+            <td colspan="2" class="banner">
+                <asp:Image ID="imgBanner" runat="server" Height="150px" Width="1000px" 
+                    ImageUrl="~/Resimler/banner.png" />
+            </td>
+        </tr>
+        <tr align="justify">
+            <td colspan="2" class="altMenu" valign="middle">
+                <div class="altMenu clear hideSkiplink " valign="middle">
+                &nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <asp:HyperLink ID="hypMasaustuPro" runat="server"  
+                    NavigateUrl="~/Site/MasustuProgramlama.aspx" Font-Bold="True" 
+                    Font-Strikeout="False" Font-Underline="False" ForeColor="#00C663">MASAÜSTÜ PROGRALAMA</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypWebPro" runat="server" 
+                    NavigateUrl="~/Site/WebProgramlama.aspx" Font-Bold="True" 
+                    Font-Underline="False" ForeColor="#00C663">WEB PROGRAMLAMA</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypMakinePro" runat="server" 
+                    NavigateUrl="~/Site/MakineProgramlama.aspx" Font-Bold="True" 
+                    Font-Underline="False" ForeColor="#00C663">MAKİNE PROGRAMLAMA</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypProjeler" runat="server" 
+                    NavigateUrl="~/Site/Projeler.aspx" Font-Bold="True" Font-Underline="False" 
+                    ForeColor="#00C663">PROJELER</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypHakkimda" runat="server" 
+                    NavigateUrl="~/Site/Hakkimda.aspx" Font-Bold="True" Font-Underline="False" 
+                    ForeColor="#00C663">HAKKIMDA</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypDuyurular" runat="server" 
+                    NavigateUrl="~/Site/Duyurular.aspx" Font-Bold="True" 
+                    Font-Underline="False" ForeColor="#00C663">DUYURULAR</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:HyperLink ID="hypDersBilgileri" runat="server" 
+                    NavigateUrl="~/Site/DersBilgileri.aspx" Font-Bold="True" 
+                    Font-Underline="False" ForeColor="#00C663">DERS BİLGİLERİ</asp:HyperLink>
+                
+                </td>
+              </div>
+        </tr>
+        <tr>
+            <td class="yanMenu" valign="top">
+                <table align="center" cellspacing="1" width="100%" height="100%">
+                    <tr>
+                        <td height="25px" align="center" bgColor="#465c71" >
+                            <asp:Label ID="Label1" runat="server" Font-Names="Verdana" Font-Size="Smaller" 
+                                Text="En Son Eklenen Makaleler" ForeColor="#00C663" Font-Bold="True" 
+                    Font-Strikeout="False"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:DataList ID="dlEnSonEklenenMakaleler" runat="server"  BackColor="#D7EFF7" 
+                                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
+                                GridLines="Both" Width="100%" Height="100%">
+                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                <ItemStyle ForeColor="#000066" />
+                                <ItemTemplate>
+                                    <table align="center" cellspacing="1" width="100%">
+                                        <tr>
+                                            <td align="center" width="25px">
+                                                <asp:Image ID="imgEnSonEklenenMakale" runat="server" ImageUrl="~/Resimler/notepad.png" />
+                                            </td>
+                                            <td align="left">
+                                               <a href='<%#String.Format("{0}_{1}",ToUrl.UrlDonustur(Eval("MAKALEBASLIK").ToString()),Eval("MAKALEID").ToString())%>'><asp:Label ID="Label2" runat="server"  BorderStyle="None"  Font-Underline="false"   text-decoration="none"  ForeColor="Black"    Font-Names="Verdana" Font-Size="Smaller" Text=<%#Eval("MAKALEBASLIK")%>></asp:Label></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
+                                <SelectedItemStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                            </asp:DataList>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td rowspan="3" width="700px" valign="top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td class="yanMenu" valign="top">
+                 <table align="center" cellspacing="1" width="100%">
+                    <tr>
+                        <td height="25px" align="center" bgColor="#465c71" >
+                            <asp:Label ID="Label3" runat="server" Font-Names="Verdana" Font-Size="Smaller" 
+                                Text="Güncel Haberler" ForeColor="#00C663" Font-Bold="True" 
+                    Font-Strikeout="False"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="25px" align="center">
+                         <asp:DataList ID="dlEnGuncelHaberler" runat="server"  BackColor="#D7EFF7" 
+                                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
+                                GridLines="Both" Width="100%" Height="100%">
+                                <FooterStyle BackColor="White" ForeColor="#000066" />
+                                <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                                <ItemStyle ForeColor="#000066" />
+                                <ItemTemplate>
+                                    <table align="center" cellspacing="1" width="100%">
+                                        <tr>
+                                            <td align="center" width="25px">
+                                                <asp:Image ID="imgEnSonEklenenMakale" runat="server" ImageUrl="~/Resimler/notepad.png" />
+                                            </td>
+                                            <td align="left">
+                                               <a href='<%#String.Format("{0}_{1}",ToUrl.UrlDonustur(Eval("MAKALEBASLIK").ToString()),Eval("MAKALEID").ToString())%>'><asp:Label ID="Label2" runat="server"  BorderStyle="None"  Font-Underline="false"   text-decoration="none"  ForeColor="Black"    Font-Names="Verdana" Font-Size="Smaller" Text=<%#Eval("MAKALEBASLIK")%>></asp:Label></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ItemTemplate>
+                                <SelectedItemStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                            </asp:DataList>
+                         </td>
+                    </tr>
+                    </table>
+               </td>
+        </tr>
+        <tr>
+            <td class="yanMenu"  valign="top">
+              <uc1:WebUserControl runat="server" id="WebUserControl" />
+              </td>
+             
+        </tr>
+       
+        <tr  height="25px" align="center" bgColor="#465c71">
+           <td colspan="2"><asp:Label ID="lblFooter" runat="server" Text="BY DESIGNER KRALMACHINE" Font-Bold="true" Font-Size="Small" ForeColor="White" BorderStyle="None" Font-Names="Verdana"></asp:Label></td>
+        </tr>
+        
+        <tr  height="25px" align="center" bgColor="#465c71">
+            <td colspan="2"></td>
+        </tr>
+        
+
+    </table>
+        
+    
+        
+    </form>
+</body>
+</html>

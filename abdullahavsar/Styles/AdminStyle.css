@@ -1,0 +1,34 @@
+﻿body
+{
+    font-family: verdana;
+    font-size: small;
+    font-style: normal;
+    height: 800px;
+}
+.banner
+{
+   width: 1000px;
+   height: 150px;
+}
+.yanMenuAdmin
+{
+    height:600px;
+    width:250px;
+}
+.kullaniciEkleYan
+{
+ width:250px
+}
+.menu
+{
+    border-style: 1;
+    border-color: 1;
+    vertical-align: middle;
+    text-align: center;
+    word-spacing: 2em;
+    background-color: #B3B3FF;
+    border-width: 1px;
+    padding: 1px;
+    margin: 1px;
+    height:10px;
+}

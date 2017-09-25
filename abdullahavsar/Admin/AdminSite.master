@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminSite.master.cs" Inherits="Admin_AdminSite" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles/AdminStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+    <table align="center" cellspacing="1" width="1000px" border="1px">
+        <tr>
+            <td colspan="2" class="banner">
+                <asp:Image ID="imgBanner" runat="server" ImageAlign="Middle" 
+                    ImageUrl="~/Resimler/banner.png" />
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <asp:Label ID="lblGelenAdmin" runat="server" Font-Bold="True" ForeColor="Red" 
+                    Text="lblGelenAdmin"></asp:Label>
+            </td>
+            <td>
+                <asp:Label ID="lblMasterEtiket" runat="server" Font-Bold="True" ForeColor="Red" 
+                    Text="lblMasterEtiket"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="yanMenuAdmin" valign="top">
+                <table cellspacing="1" class="kullaniciEkleYan">
+                    <tr>
+                        <td class="menu">
+                            <asp:Label ID="lblAdminMenuler" runat="server" Text="MENÜLER" Font-Bold="True" 
+                                BorderColor="Aqua" Font-Size="Small" Font-Names="Verdana"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbAdminler" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" onclick="lbAdminler_Click">Adminler</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbKategoriler" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" 
+                                PostBackUrl="~/Admin/Kategoriler.aspx">Kategoriler</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbYorumlar" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" PostBackUrl="~/Admin/Yorumlar.aspx">Yorumlar</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbDuyuruYorumlar" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" 
+                                PostBackUrl="~/Admin/DuyuruYorumlar.aspx">Duyuru Yorumlar</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbProjeler" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" PostBackUrl="~/Admin/Projeler.aspx">Projeler</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbHakkimda" runat="server" Font-Strikeout="False" 
+                                Font-Underline="False" ForeColor="#EA4D00" PostBackUrl="~/Admin/Hakkimda.aspx">Hakkımda</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:HyperLink ID="HyperLink6" runat="server" Font-Names="Verdana" 
+                                ForeColor="#EA4D00">İletişim</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbDuyurular" runat="server" Font-Names="Verdana" 
+                                Font-Strikeout="False" Font-Underline="False" ForeColor="#EA4D00" 
+                                PostBackUrl="~/Admin/Duyurular.aspx">Duyurular</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbAnaMenu" runat="server" Font-Names="Verdana" 
+                                Font-Underline="False" ForeColor="#EA4D00" PostBackUrl="~/Admin/Default.aspx">AnaMenü</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="menu">
+                            <asp:LinkButton ID="lbGuvenliCikis" runat="server" Font-Bold="False" 
+                                Font-Names="Verdana" Font-Overline="False" Font-Strikeout="False" 
+                                ForeColor="#EA4D00" onclick="lbGuvenliCikis_Click">Çıkış</asp:LinkButton>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="750px" valign="top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    
+    </form>
+</body>
+</html>
